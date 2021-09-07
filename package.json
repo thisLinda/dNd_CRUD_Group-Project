@@ -1,0 +1,23 @@
+{
+  "name": "dnd_crud_group-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisLinda/dNd_CRUD_Group-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thisLinda/dNd_CRUD_Group-Project/issues"
+  },
+  "homepage": "https://github.com/thisLinda/dNd_CRUD_Group-Project#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0"
+  }
+}
