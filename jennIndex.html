@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Campaign App</title>
+    <title>Jennifer-HTML</title>
     <link rel="stylesheet" href="style.css"></link>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
@@ -32,6 +32,8 @@
                         data-bs-toggle="modal" data-bs-target="#create-event-modal">Add an Event</button>
                     </div>
                 </div>
+<!-- ----------------------monster button-------------------------------- -->
+
             </div>
             <div class="row">
               <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
@@ -41,6 +43,7 @@
                       data-bs-toggle="modal" data-bs-target="#create-monster-modal">Create Monster</button> <!--needs to be updated to actual function-->
                   </div>
               </div>
+<!-- ----------------------npc button-------------------------------- -->
               <div class="col-sm-1"></div>
               <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
                   <div id="new-npc" class="container-fluid py-5">
@@ -51,6 +54,8 @@
               </div>
           </div>
         </div>
+<!-- ----------------------/npc button-------------------------------- -->
+
         <br>
         <br>
         <div>
@@ -126,79 +131,8 @@
             </div>
           </div>
 
-        <!--Event Modal Form-->  
-        <!--bootstrap modal switching:-->
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Show a second modal and hide this one with the button below.
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  Hide this modal and show the first with the button below.
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
-
-        <!--Basic-->  
-        <div id="create-event-modal" class="modal" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
-            <div class="modal-dialog modal-xl">   
-              <div class="modal-content">  
-                <div class="modal-header">   
-                  <h5 class="modal-title">Add Event</h5>  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
-                </div>
-                <div class="modal-body">
-                  <form>     <!--different than posted-->
-                      <div class="mb-3">
-                          <label for="dish-name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="dish-name">
-                      </div>
-                      <div class="mb-3">
-                          <label for="dish-type" class="form-label">Type</label>
-                          <select class="form-select" id="dish-type">
-                              <option value="Main">Main</option>
-                              <option value="Side">Side</option>
-                              <option value="Dessert">Dessert</option>
-                          </select>
-                      </div>
-                      <div>
-                          <label for="dish-price" class="form-label">Price</label>
-                          <input type="number" class="form-control" id="dish-price">
-                      </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  <!--Basic Bootstrap-->
-                  <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--needs "saveEvent" function-->
-                </div>
-              </div>
-            </div>
-          </div>
-<!-- monster modal form -->
-<div id="create-npc-modal" class="modal" tabindex="-1"> 
+<!-- ------------------monster modal form-------------------------------- -->
+<div id="create-monster-modal" class="modal" tabindex="-1"> 
   <div class="modal-dialog modal-xl">  
     <div class="modal-content"> 
       <div class="modal-header">  
@@ -228,7 +162,8 @@
     </div>
   </div>
 </div>
-<!-- npc modal form -->
+
+<!-- ---------------------npc modal form------------------------------------- -->
 <div id="create-npc-modal" class="modal" tabindex="-1"> 
   <div class="modal-dialog modal-xl">  
     <div class="modal-content"> 
@@ -250,11 +185,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-        <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
+        <button type="button" class="btn btn-success" onclick="addNpc()">Save</button>
       </div>
     </div>
   </div>
 </div>
+
+<h1>Random Heading</h1>
     </main>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="events.js"></script>

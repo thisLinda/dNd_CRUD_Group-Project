@@ -20,10 +20,10 @@ const npcs = [
 
 
 function addNpc() {
-
+console.log("npc added");
 }
 
-function editNpc() {
+function editNpcPlot() {
 
 }
 
