@@ -37,15 +37,17 @@
         <br>
         <br>
         <div>
+            <!--Character List-->
             <h3>Our Intrepid Heroes...</h3>
             <hr>
-            <div id="character-list"> <!--same as app in the house video-->
+            <div id="character-list"> <!--same as app in the house video, append the created characters to this-->
             </div>
         </div>
         <div>
+             <!--Events List-->
             <h3>The Story Thus Far...</h3>
             <hr>
-            <div id="campaign"> <!--same as app in the house video-->
+            <div id="campaign"> <!--same as app in the house video, I'm appending the events to this -->
             </div>
         </div>
 
@@ -59,10 +61,12 @@
                 </div>
                 <div class="modal-body">
                   <form>     
+                       <!--Character Name-->
                       <div class="mb-3">
                           <label for="character-name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="character-name">
                       </div>
+                      <!--Character Race-->
                       <div class="mb-3">
                           <label for="character-race" class="form-label">Race</label>
                           <select class="form-select" id="character-race">
@@ -77,6 +81,7 @@
                               <option value="Tiefling">Tiefling</option>
                           </select>
                       </div>
+                      <!--Character Class(role)-->
                       <div class="mb-3">
                         <label for="character-class" class="form-label">Class</label>
                         <select class="form-select" id="character-class">
@@ -95,12 +100,14 @@
 
                         </select>
                     </div>
+                        <!--Character HP-->
                       <div>
                           <label for="health-points" class="form-label">HP</label>
                           <input type="number" class="form-control" id="health-points">
                       </div>
                   </form>
                 </div>
+                <!--saving/exiting buttons-->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
                   <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
@@ -110,6 +117,7 @@
           </div>
 
         <!--Event Modal Form-->  
+        <!--First Modal-->
         <div class="modal fade" id="create-event-modal" aria-hidden="true" aria-labelledby="eventModalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
@@ -120,6 +128,7 @@
                 <div class="modal-body">
                     What would you like to make?
                 </div>
+                <!--create battle or encounter buttons-->
                 <div class="modal-footer">
                   <button class="btn btn-primary" data-bs-target="#create-battle" data-bs-toggle="modal" data-bs-dismiss="modal">Battle</button>
                   <button class="btn btn-primary" data-bs-target="#create-encounter" data-bs-toggle="modal" data-bs-dismiss="modal">Encounter</button>
@@ -127,6 +136,8 @@
               </div>
             </div>
           </div>
+
+          <!--Battle Modal-->
           <div class="modal fade" id="create-battle" aria-hidden="true" aria-labelledby="battleModalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
@@ -136,32 +147,43 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <!--Battle Name-->
                         <div class="mb-3">
                             <label for="battle-name" class="form-label">Battle Name</label>
                             <input type="text" class="form-control" id="battle-name">
                         </div>
-                        <div class="row">  
-                        <div class="col-sm-9">
-                            <label for="monster-name" class="form-label">Monster</label>
-                            <input type="text" class="form-control" id="monster-name">
-                        </div>
-                        <div class="col-sm-3">
-                            <label for="m-health-points" class="form-label">HP</label>
-                            <input type="number" class="form-control" id="m-health-points">
-                        </div>
-                        </div>
-                        <div class="float-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>  
-                            <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+                        <!--Monster Info-->
+                        <div class="row" id="new-monster">  
+                            <!--Monster Name-->
+                            <div class="col-sm-6">
+                                <label for="monster-name" class="form-label">Monster</label>
+                                <input type="text" class="form-control" id="monster-name">
+                            </div>
+                            <!--Monster HP-->
+                            <div class="col-sm-2">
+                                <label for="m-health-points" class="form-label">HP</label>
+                                <input type="number" class="form-control" id="m-health-points">
+                            </div>
+                            <!--Save Button-->
+                            <div class="col-sm-4">
+                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+                                    <button type="button" id="create-new-monster" class="btn btn-primary" onclick="createMonster()">Create</button>
+                <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->  
+                                    <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
+                                    <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
+                    <!--Monster List-->
                     <div>
                         <h5>Monsters</h5>
                         <hr>
-                        <div id="monster-list"> <!--same as app in the house video-->
+                        <div id="monster-list"> <!--same as app in the house video, you're appending the created monster to this-->
                         </div>
                     </div>
                 </div>
+                <!--saving/exiting buttons-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
                     <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveEvent" function-->
@@ -170,6 +192,7 @@
             </div>
           </div>
 
+          <!--Encounter Modal-->
           <div class="modal fade" id="create-encounter" aria-hidden="true" aria-labelledby="encounterModalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
@@ -179,25 +202,36 @@
                 </div>
                 <div class="modal-body">
                      <form>
+                         <!--Encounter Info-->
                         <div class="mb-3">
                             <label for="encounter-name" class="form-label">Encounter Name</label>
                             <input type="text" class="form-control" id="encounter-name">
                         </div>
-                        <div class="row">  
-                        <div class="col-sm-4">
-                            <label for="npc-name" class="form-label">NPC Name</label>
-                            <input type="text" class="form-control" id="npc-name">
-                        </div>
-                        <div class="col-sm-8">
-                            <label for="plot-points" class="form-label">Plot Points</label>
-                            <input type="textarea" class="form-control" id="plot-points">
-                        </div>
-                        </div>
-                        <div class="float-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-                            <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+                        <!--Name Info-->
+                        <div class="row"> 
+                            <!--NPC Name--> 
+                            <div class="col-sm-3">
+                                <label for="npc-name" class="form-label">NPC Name</label>
+                                <input type="text" class="form-control" id="npc-name">
+                            </div>
+                            <!--NPC plot points-->
+                            <div class="col-sm-5">
+                                <label for="plot-points" class="form-label">Plot Points</label>
+                                <textarea class="form-control" id="plot-points" name="plot-points" 
+                                rows="8" cols="100" placeholder="Write a plot point"></textarea>
+                            </div>
+                            <!--Save Button-->
+                            <div class="col-sm-4">
+                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+                                    <button type="button" id="create-new-npc" class="btn btn-primary" onclick="createNPC()">Create</button>
+                    <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->                                
+                                    <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+                                    <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
+                    <!--NPC List-->
                     <div>
                         <h5>NPCs</h5>
                         <hr>
@@ -205,6 +239,7 @@
                         </div>
                     </div>
                 </div>
+                <!--saving/exiting buttons-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
                     <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveEvent" function-->
@@ -212,9 +247,7 @@
               </div>
             </div>
           </div>
-          <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#create-event-modal" role="button">Open first modal</a> -->
-
-    
+              
 
 <h1>Random Test Heading</h1>
     </main>
