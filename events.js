@@ -1,18 +1,69 @@
-const dishes = [];
+// const dishes = [];
 
+const events = [];
+
+// $(() => {
+//     renderDishes();
+// })
+
+
+// UNDERSTAND THIS BETTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $(() => {
-    renderDishes();
+    renderEvents();
 })
+
 
 // READ
 
-function renderDishes() {
-    $("#dishes-container").empty().append(
-        dishes.map(dish => renderDish(dish))
-    );
+// function renderDishes() {
+//     $("#dishes-container").empty().append(
+//         dishes.map(dish => renderDish(dish))
+//     );
+// }
+
+// for running at all times?
+function renderEvents(){
+    $('#campaign').empty();
+    for (let event of events){
+        $('#campaign').append(             //Ternary operator on whether it shows a battle or an encounter?
+            `<div id="${event._id}" class="card">
+                <div class="card-header">
+                    <h2>${event.name}</h2>
+                    <button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-sm">
+                                ${renderCharacters()}
+                            </div>
+                            <div class="col-sm">
+                                ${renderMonsters()}
+                            </div>
+                            <div class="col-sm">
+                                ${renderNPCs()}
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+                    </div>
+                </div>
+            </div><br>`
+            //Add real functions/see if that works with template literals
+            //Not sure if need card around stuff inside card body?
+        
+
+
+
+
+
+        //Natalie's code is below:
+        // events.map(event => renderEvents(event))
+        );
+    }
 }
 
-function renderDish(dish) {
+// for when user click on an event
+function renderEvent(event) {
     return (
         `<tr>
             <td>${dish.name}</td>
