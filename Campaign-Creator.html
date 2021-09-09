@@ -54,7 +54,7 @@
             <div class="modal-dialog modal-xl">  
               <div class="modal-content"> 
                 <div class="modal-header">  
-                  <h5 class="modal-title">Add Character</h5> 
+                  <h4 class="modal-title">Welcome to the team!</h4> 
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
                 </div>
                 <div class="modal-body">
@@ -110,76 +110,111 @@
           </div>
 
         <!--Event Modal Form-->  
-        <!--bootstrap modal switching:-->
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="create-event-modal" aria-hidden="true" aria-labelledby="eventModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                  <h5 class="modal-title" id="event-modal">What happens in the Forgotten Realms, stays in the Forgotten Realms...</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Show a second modal and hide this one with the button below.
+                    What would you like to make?
                 </div>
                 <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                  <button class="btn btn-primary" data-bs-target="#create-battle" data-bs-toggle="modal" data-bs-dismiss="modal">Battle</button>
+                  <button class="btn btn-primary" data-bs-target="#create-encounter" data-bs-toggle="modal" data-bs-dismiss="modal">Encounter</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+          <div class="modal fade" id="create-battle" aria-hidden="true" aria-labelledby="battleModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                  <h4 class="modal-title" id="battleModalLabel">Let's get ready to rumble!</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Hide this modal and show the first with the button below.
+                    <form>
+                        <div class="mb-3">
+                            <label for="battle-name" class="form-label">Battle Name</label>
+                            <input type="text" class="form-control" id="battle-name">
+                        </div>
+                        <div class="row">  
+                        <div class="col-sm-9">
+                            <label for="monster-name" class="form-label">Monster</label>
+                            <input type="text" class="form-control" id="monster-name">
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="m-health-points" class="form-label">HP</label>
+                            <input type="number" class="form-control" id="m-health-points">
+                        </div>
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>  
+                            <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+                        </div>
+                    </form>
+                    <div>
+                        <h5>Monsters</h5>
+                        <hr>
+                        <div id="monster-list"> <!--same as app in the house video-->
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                    <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveEvent" function-->
+                  </div>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
 
-        <!--Basic-->  
-        <div id="create-event-modal" class="modal" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
-            <div class="modal-dialog modal-xl">   
-              <div class="modal-content">  
-                <div class="modal-header">   
-                  <h5 class="modal-title">Add Event</h5>  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+          <div class="modal fade" id="create-encounter" aria-hidden="true" aria-labelledby="encounterModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="encounterModalLabel">An Elf, a Gnome, and a Tiefling walk into a bar...</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form>     <!--different than posted-->
-                      <div class="mb-3">
-                          <label for="dish-name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="dish-name">
-                      </div>
-                      <div class="mb-3">
-                          <label for="dish-type" class="form-label">Type</label>
-                          <select class="form-select" id="dish-type">
-                              <option value="Main">Main</option>
-                              <option value="Side">Side</option>
-                              <option value="Dessert">Dessert</option>
-                          </select>
-                      </div>
-                      <div>
-                          <label for="dish-price" class="form-label">Price</label>
-                          <input type="number" class="form-control" id="dish-price">
-                      </div>
-                  </form>
+                     <form>
+                        <div class="mb-3">
+                            <label for="encounter-name" class="form-label">Encounter Name</label>
+                            <input type="text" class="form-control" id="encounter-name">
+                        </div>
+                        <div class="row">  
+                        <div class="col-sm-4">
+                            <label for="npc-name" class="form-label">NPC Name</label>
+                            <input type="text" class="form-control" id="npc-name">
+                        </div>
+                        <div class="col-sm-8">
+                            <label for="plot-points" class="form-label">Plot Points</label>
+                            <input type="textarea" class="form-control" id="plot-points">
+                        </div>
+                        </div>
+                        <div class="float-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                            <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+                        </div>
+                    </form>
+                    <div>
+                        <h5>NPCs</h5>
+                        <hr>
+                        <div id="NPC-list"> <!--same as app in the house video-->
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  <!--Basic Bootstrap-->
-                  <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--needs "saveEvent" function-->
-                </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                    <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveEvent" function-->
+                  </div>
               </div>
             </div>
           </div>
+          <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#create-event-modal" role="button">Open first modal</a> -->
+
+    
 
 
     </main>
@@ -190,3 +225,4 @@
 
 </body>
 </html>
+
