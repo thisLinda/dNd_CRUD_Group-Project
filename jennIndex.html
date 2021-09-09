@@ -197,7 +197,37 @@
               </div>
             </div>
           </div>
-
+<!-- monster modal form -->
+<div id="create-npc-modal" class="modal" tabindex="-1"> 
+  <div class="modal-dialog modal-xl">  
+    <div class="modal-content"> 
+      <div class="modal-header">  
+        <h5 class="modal-title">Add Monster</h5> 
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+      </div>
+      <div class="modal-body">
+        <form>     
+            <div class="mb-3">
+                <label for="monster-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="monster-name">
+            </div>
+            <div class="mb-3">
+              <label for="monster-type" class="form-label">Type</label>
+              <input type="text" class="form-control" id="monster-type">
+          </div>
+            <div>
+                <label for="monster-health-points" class="form-label">HP</label>
+                <input type="number" class="form-control" id="monster-health-points">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+        <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
+      </div>
+    </div>
+  </div>
+</div>
 <!-- npc modal form -->
 <div id="create-npc-modal" class="modal" tabindex="-1"> 
   <div class="modal-dialog modal-xl">  
@@ -216,10 +246,6 @@
               <label for="npc-plot" class="form-label">Plot</label>
               <input type="text" class="form-control" id="npc-plot">
           </div>
-            <div>
-                <label for="health-points" class="form-label">HP</label>
-                <input type="number" class="form-control" id="health-points">
-            </div>
         </form>
       </div>
       <div class="modal-footer">
