@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Campaign App</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body  class="container">
+    <main>
+        <div class="p-5 mb-2 bg-info">
+        <h1>Welcome to the Campaign Creator!</h1>
+        </div>
+        <br>
+        <div class="container py-4">
+            <div class="row">
+                <h2>Add a...</h2>
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-character" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Character</h2>
+                        <button type="button" id="create-new-character" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-character-modal">Create Character</button> <!--needs to be updated to actual function-->
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-event" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Event</h2>
+                        <button type="button" id="create-new-event" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-event-modal">Add an Event</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                  <div id="new-monster" class="container-fluid py-5">
+                      <h2 class="display-5 fw-bold">Monster</h2>
+                      <button type="button" id="create-new-monster" class="btn btn-primary" 
+                      data-bs-toggle="modal" data-bs-target="#create-monster-modal">Create Monster</button> <!--needs to be updated to actual function-->
+                  </div>
+              </div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                  <div id="new-npc" class="container-fluid py-5">
+                      <h2 class="display-5 fw-bold">Non-Playing Character</h2>
+                      <button type="button" id="create-new-npc" class="btn btn-primary" 
+                      data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add an NPC</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <h3>Our Intrepid Heroes...</h3>
+            <hr>
+            <div id="character-list"> <!--same as app in the house video-->
+            </div>
+        </div>
+        <div>
+            <h3>The Story Thus Far...</h3>
+            <hr>
+            <div id="campaign"> <!--same as app in the house video-->
+            </div>
+        </div>
+
+        <!--Character Modal Form-->
+        <div id="create-character-modal" class="modal" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
+            <div class="modal-dialog modal-xl">  
+              <div class="modal-content"> 
+                <div class="modal-header">  
+                  <h5 class="modal-title">Add Character</h5> 
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>
+                <div class="modal-body">
+                  <form>     
+                      <div class="mb-3">
+                          <label for="character-name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="character-name">
+                      </div>
+                      <div class="mb-3">
+                          <label for="character-race" class="form-label">Race</label>
+                          <select class="form-select" id="character-race">
+                              <option value="Dragonborn">Dragonborn</option>
+                              <option value="Dwarf">Dwarf</option>
+                              <option value="Elf">Elf</option>
+                              <option value="Gnome">Gnome</option>
+                              <option value="Half-Elf">Half-Elf</option>
+                              <option value="Halfling">Halfling</option>
+                              <option value="Half-Orc">Half-Orc</option>
+                              <option value="Human">Human</option>
+                              <option value="Tiefling">Tiefling</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="character-class" class="form-label">Class</label>
+                        <select class="form-select" id="character-class">
+                            <option value="Barbarian">Barbarian</option>
+                            <option value="Bard">Bard</option>
+                            <option value="Cleric">Cleric</option>
+                            <option value="Druid">Druid</option>
+                            <option value="Fighter">Fighter</option>
+                            <option value="Monk">Monk</option>
+                            <option value="Paladin">Paladin</option>
+                            <option value="Ranger">Ranger</option>
+                            <option value="Rogue">Rogue</option>
+                            <option value="Sorcerer">Sorcerer</option>
+                            <option value="Warlock">Warlock</option>
+                            <option value="Wizard">Wizard</option>
+
+                        </select>
+                    </div>
+                      <div>
+                          <label for="health-points" class="form-label">HP</label>
+                          <input type="number" class="form-control" id="health-points">
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                  <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--Event Modal Form-->  
+        <!--bootstrap modal switching:-->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Show a second modal and hide this one with the button below.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Hide this modal and show the first with the button below.
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+
+        <!--Basic-->  
+        <div id="create-event-modal" class="modal" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
+            <div class="modal-dialog modal-xl">   
+              <div class="modal-content">  
+                <div class="modal-header">   
+                  <h5 class="modal-title">Add Event</h5>  
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+                </div>
+                <div class="modal-body">
+                  <form>     <!--different than posted-->
+                      <div class="mb-3">
+                          <label for="dish-name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="dish-name">
+                      </div>
+                      <div class="mb-3">
+                          <label for="dish-type" class="form-label">Type</label>
+                          <select class="form-select" id="dish-type">
+                              <option value="Main">Main</option>
+                              <option value="Side">Side</option>
+                              <option value="Dessert">Dessert</option>
+                          </select>
+                      </div>
+                      <div>
+                          <label for="dish-price" class="form-label">Price</label>
+                          <input type="number" class="form-control" id="dish-price">
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  <!--Basic Bootstrap-->
+                  <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--needs "saveEvent" function-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+<!-- npc modal form -->
+<div id="create-npc-modal" class="modal" tabindex="-1"> 
+  <div class="modal-dialog modal-xl">  
+    <div class="modal-content"> 
+      <div class="modal-header">  
+        <h5 class="modal-title">Add Non-Playing Character</h5> 
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+      </div>
+      <div class="modal-body">
+        <form>     
+            <div class="mb-3">
+                <label for="npc-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="npc-name">
+            </div>
+            <div class="mb-3">
+              <label for="npc-plot" class="form-label">Plot</label>
+              <input type="text" class="form-control" id="npc-plot">
+          </div>
+            <div>
+                <label for="health-points" class="form-label">HP</label>
+                <input type="number" class="form-control" id="health-points">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+        <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
+      </div>
+    </div>
+  </div>
+</div>
+    </main>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="events.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="npcs.js"></script>
+
+</body>
+</html>
