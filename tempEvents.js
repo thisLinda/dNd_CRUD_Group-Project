@@ -44,6 +44,25 @@ function renderDish(dish) {
     <div class="card-body" id="put-sub-code-here">
     </div>
         </div>`
+        )
+      }
+  
+
+        function oldRenderDish(dish) {
+          return (
+        `<td>${dish.id}</td>
+            <td>${dish.name}</td>
+            <td>${dish.type}</td>
+            <td>$${dish.price}</td>
+            <td class="text-end">
+                <button class="btn btn-sm btn-primary" onclick="openEditDishModal(${dish.id})">Update Event</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteDish(${dish.id})">Delete Event</button>
+                <button type="button" id="create-new-npc" class="btn btn-primary" 
+              data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add NPC</button>
+                <button type="button" id="create-new-monster" class="btn btn-primary" 
+              data-bs-toggle="modal" data-bs-target="#create-monster-modal">Add Monster</button>
+            </td>
+        </tr>`
     )
 }
 
