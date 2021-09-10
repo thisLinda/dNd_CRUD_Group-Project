@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Campaign App</title>
-    <link rel="stylesheet" href="style.css"></link>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body  class="container">
     <main>
@@ -33,6 +33,27 @@
                     </div>
                 </div>
             </div>
+
+            <!--       Take out later and connect these to        -->
+    <!-- ----------------------monster button-------------------------------- -->
+            <div class="row">
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-monster" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Monster</h2>
+                        <button type="button" id="create-new-monster" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-monster-modal">Create Monster</button> <!--needs to be updated to actual function-->
+                    </div>
+                </div>
+  <!-- ----------------------npc button-------------------------------- -->
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-npc" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Non-Playing Character</h2>
+                        <button type="button" id="create-new-npc" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add an NPC</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <br>
@@ -48,6 +69,20 @@
             <h3>The Story Thus Far...</h3>
             <hr>
             <div id="campaign"> <!--same as app in the house video, I'm appending the events to this -->
+            </div>
+        </div>
+        <!--Monster List   We are removing this when we have everything functioning-->
+        <div>
+            <h5>Monsters</h5>
+            <hr>
+            <div id="monster-list"> <!--same as app in the house video, you're appending the created monster to this-->
+            </div>
+        </div>
+        <!--NPC List      We are removing this when we have everything functioning-->
+        <div>
+            <h5>NPCs</h5>
+            <hr>
+            <div id="NPC-list"> <!--same as app in the house video-->
             </div>
         </div>
 
@@ -137,6 +172,7 @@
             </div>
           </div>
 
+ 
           <!--Battle Modal-->
           <div class="modal fade" id="create-battle" aria-hidden="true" aria-labelledby="battleModalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -249,7 +285,7 @@
           </div>
               
 
-<h1>Random Test Heading</h1>
+
     </main>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
