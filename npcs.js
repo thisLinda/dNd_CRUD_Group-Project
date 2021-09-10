@@ -18,29 +18,64 @@ const npcs = [
 }
 ]
 
-//?does this work?
-
+//add npc
   document.getElementById('add-npcs').addEventListener('click', () => {
   npcs.push({ 
     id: npcs.length+=2,
     name: `${document.getElementById('npc-name').value}`,
     plot: `${document.getElementById('npc-plot').value}`
   });
-  console.log(npcs);
-  }); //end arrow function
+  for (let npc of npcs) {
+    console.log(npcs);
+    $('#undefined-NPC-list').append(
+      `<p>
+      <span id="name-${npcs._id}"><strong>ID:</strong> ${npcs._id}</span>
+      <span id="name-${npcs._id}"><strong>Name:</strong> ${npcs.name}</span>
+      <span id="name-${npcs._id}"><strong>Plot:</strong> ${npcs.plot}</span> 
+      </p>
+      <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+      <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>`
+    );
+};
+  //showAllNpcs();
+  }); //end add npc
 
 function editNpcPlot() {
 console.log("npc plot edited");
 }
 
+
+document.getElementById('saveEvent').addEventListener('click', () => {
+  for (let npc of npcs) {
+    console.log(npcs);
+    $('#undefined-NPC-list').append(
+      `<p>
+      <span id="name-${npcs._id}"><strong>ID:</strong> ${npcs._id}</span>
+      <span id="name-${npcs._id}"><strong>Name:</strong> ${npcs.name}</span>
+      <span id="name-${npcs._id}"><strong>Plot:</strong> ${npcs.plot}</span> 
+      </p>
+      <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+      <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>`
+    );
+};
+});
+
 function showAllNpcs() {
-
+        //$('#undefined-NPC-list').empty();
+        for (let npc of npcs) {
+          $('#undefined-NPC-list').append(
+            `<p>
+            <span id="name-${npcs.id}""><strong>ID:</strong> ${npcs.id}</span>
+            <span id="name-${npcs.id}""><strong>Name:</strong> ${npcs.name}</span>
+            <span id="name-${npcs.id}""><strong>Plot:</strong> ${npcs.plot}</span> 
+            </p>
+            <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+            <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>`
+          );
+  }
 }
 
-function deleteNpc() {
-//slice or splice
-}
 
-function calculateId() {
-  // equals npcs.length + 1?
-}
+// function deleteNpc() {
+// //slice or splice
+// }
