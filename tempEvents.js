@@ -3,7 +3,18 @@ const dishes = [
   { "id": 1,
     "name": "Helms Deep",
   "type": "battle",
-"price": "thing 1"}
+"price": "thing 1"
+},
+{ "id": 2,
+"name": "Appomattox",
+"type": "battle",
+"price": "thing 2"
+},
+{ "id": 3,
+"name": "At The Last Drop",
+"type": "encounter",
+"price": "thing 3"
+},
 ];
 
 $(() => {
@@ -28,8 +39,10 @@ function renderDish(dish) {
             <td class="text-end">
                 <button class="btn btn-sm btn-primary" onclick="openEditDishModal(${dish.id})">Update Event</button>
                 <button class="btn btn-sm btn-danger" onclick="deleteDish(${dish.id})">Delete Event</button>
-                <button class="btn btn-sm btn-primary" onclick="openEditDishModal(${dish.id})">Add NPC</button>
-                <button class="btn btn-sm btn-primary" onclick="openEditDishModal(${dish.id})">Add Monster</button>
+                <button type="button" id="create-new-npc" class="btn btn-primary" 
+              data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add NPC</button>
+                <button type="button" id="create-new-monster" class="btn btn-primary" 
+              data-bs-toggle="modal" data-bs-target="#create-monster-modal">Add Monster</button>
             </td>
         </tr>`
     )
@@ -85,5 +98,7 @@ function saveEditDish() {
 
     renderDishes();
 }
+//add things
+const npc_modal = new bootstrap.Modal(document.getElementById('edit-dish-modal'));
 
-// Twinkie Soup, Hot Dog Salad, Deep-Fried Mayonnaise
+const monster_modal = new bootstrap.Modal(document.getElementById('edit-dish-modal'));
