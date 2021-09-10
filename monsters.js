@@ -30,4 +30,5 @@ document.getElementById('add-monster').addEventListener('click', () => {
     type: `${document.getElementById('monster-type').value}`,
     hp: `${document.getElementById('monster-hp').value}`
   })
+  console.log(monsters);
 });
