@@ -10,10 +10,15 @@
 </head>
 <body  class="container">
     <main>
+        <!--heading-->
         <div class="p-5 mb-2 bg-info">
         <h1>Welcome to the Campaign Creator!</h1>
         </div>
         <br>
+
+
+
+        <!--Character and Event Buttons-->
         <div class="container py-4">
             <div class="row">
                 <h2>Add a...</h2>
@@ -21,7 +26,7 @@
                     <div id="new-character" class="container-fluid py-5">
                         <h2 class="display-5 fw-bold">Character</h2>
                         <button type="button" id="create-new-character" class="btn btn-primary" 
-                        data-bs-toggle="modal" data-bs-target="#create-character-modal">Create Character</button> <!--needs to be updated to actual function-->
+                        data-bs-toggle="modal" data-bs-target="#create-character-modal">Create Character</button> 
                     </div>
                 </div>
                 <div class="col-sm-1"></div>
@@ -36,7 +41,7 @@
             </div>    
     
 
-
+        <!--Monster and NPC Buttons-->
             <div class="row">
                 <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
                     <div id="new-monster" class="container-fluid py-5">
@@ -61,33 +66,45 @@
         </div>
         <br>
         <br>
-        <div>
+
             <!--Character List-->
+        <div>
             <h3>Our Intrepid Heroes...</h3>
             <hr>
             <div id="character-list"> <!--same as app in the house video, append the created characters to this-->
             </div>
         </div>
-        <div>
+
+
+
              <!--Events List-->
+        <div>        
             <h3>The Story Thus Far...</h3>
             <hr>
             <div id="campaign"> <!--same as app in the house video, I'm appending the events to this -->
             </div>
         </div>
+
+            <!--NPCs List-->
         <div>
             <h5>NPCs</h5>
             <hr>
-            <div id="NPC-list"> 
+            <div id="NPC-list"> <!--same as app in the house video, append the created NPCs to this-->
             </div>
         </div>
+
+
+            <!--Monsters List-->
         <div>
             <h5>Monsters</h5>
             <hr>
-            <div id="monster-list"> 
+            <div id="monster-list"> <!--same as app in the house video, append the created characters to this-->
             </div>
         </div>
         
+
+
+
         <!--Character Modal Form-->
         <div id="create-character-modal" class="modal fade" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
             <div class="modal-dialog modal-xl">  
@@ -153,6 +170,10 @@
             </div>
           </div>
 
+
+
+
+
         <!--Event Modal Form-->  
         <!--First Modal-->
         <div class="modal fade" id="create-event-modal" aria-hidden="true" aria-labelledby="eventModalLabel" tabindex="-1">
@@ -185,33 +206,10 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <!--Battle Name-->
                         <div class="mb-3">
                             <label for="battle-name" class="form-label">Battle Name</label>
                             <input type="text" class="form-control" id="battle-name">
-                        </div>
-                        <!--Monster Info-->
-                        <div class="row" id="new-monster">  
-                            <!--Monster Name-->
-                            <div class="col-sm-6">
-                                <label for="monster-name" class="form-label">Monster</label>
-                                <input type="text" class="form-control" id="monster-name">
                             </div>
-                            <!--Monster HP-->
-                            <div class="col-sm-2">
-                                <label for="monster-hp" class="form-label">HP</label>
-                                <input type="number" class="form-control" id="monster-hp">
-                            </div>
-                            <!--Save Button-->
-                            <div class="col-sm-4">
-                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
-                                    <button type="button" id="add-monster" class="btn btn-primary">Create</button>
-                <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->  
-                                    <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
-                                    <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
-                                </div>
-                            </div>
-                        </div>
                     </form>
                     <!--Monster List-->
                     <div>
@@ -230,6 +228,7 @@
             </div>
           </div>
 
+
           <!--Encounter Modal-->
           <div class="modal fade" id="create-encounter" aria-hidden="true" aria-labelledby="encounterModalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -240,33 +239,9 @@
                 </div>
                 <div class="modal-body">
                      <form>
-                         <!--Encounter Info-->
                         <div class="mb-3">
                             <label for="encounter-name" class="form-label">Encounter Name</label>
                             <input type="text" class="form-control" id="encounter-name">
-                        </div>
-                        <!--Name Info-->
-                        <div class="row"> 
-                            <!--NPC Name--> 
-                            <div class="col-sm-3">
-                                <label for="npc-name" class="form-label">NPC Name</label>
-                                <input type="text" class="form-control" id="npc-name">
-                            </div>
-                            <!--NPC plot points-->
-                            <div class="col-sm-5">
-                                <label for="plot-points" class="form-label">Plot Points</label>
-                                <textarea class="form-control" id="plot-points" name="plot-points" 
-                                rows="8" cols="100" placeholder="Write a plot point"></textarea>
-                            </div>
-                            <!--Save Button-->
-                            <div class="col-sm-4">
-                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
-                                    <button type="button" id="create-new-npc" class="btn btn-primary" onclick="createNPC()">Create</button>
-                    <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->                                
-                                    <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
-                                    <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
-                                </div>
-                            </div>
                         </div>
                     </form>
                     <!--NPC List-->
@@ -285,6 +260,12 @@
               </div>
             </div>
           </div>
+
+
+
+
+
+
           <!------------------monster modal form-------------------------------->
 <div id="create-monster-modal" class="modal fade" tabindex="-1"> 
     <div class="modal-dialog modal-xl">  
@@ -314,7 +295,7 @@
                
                 <div class="col-sm-4">
                     <div class="button-box"> 
-                        <button type="button" id="create-new-monster" class="btn btn-primary" onclick="createMonster()">Create</button> 
+                        <button type="button" id="add-monster" class="btn btn-primary">Create</button> 
                         <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
                         <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
                     </div>
@@ -330,6 +311,11 @@
     </div>
   </div>
   
+
+
+
+
+
   <!---------------------npc modal form-------------------------------------> 
   <div id="create-npc-modal" class="modal fade" tabindex="-1"> 
     <div class="modal-dialog modal-xl">  

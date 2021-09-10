@@ -1,3 +1,85 @@
+//stuff from HTML:
+// <!--Battle Name-->
+//                         <div class="mb-3">
+//                             <label for="battle-name" class="form-label">Battle Name</label>
+//                             <input type="text" class="form-control" id="battle-name">
+//                         </div>
+//                         <!--Monster Info-->
+//                         <div class="row" id="new-monster">  
+//                             <!--Monster Name-->
+//                             <div class="col-sm-6">
+//                                 <label for="monster-name" class="form-label">Monster</label>
+//                                 <input type="text" class="form-control" id="monster-name">
+//                             </div>
+//                             <!--Monster HP-->
+//                             <div class="col-sm-2">
+//                                 <label for="monster-hp" class="form-label">HP</label>
+//                                 <input type="number" class="form-control" id="monster-hp">
+//                             </div>
+//                             <!--Save Button-->
+//                             <div class="col-sm-4">
+//                                 <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+//                                     <button type="button" id="add-monster" class="btn btn-primary">Create</button>
+//                 <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->  
+//                                     <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
+//                                     <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
+//                                 </div>
+//                             </div>
+//                         </div>
+
+// <!--Encounter Info-->
+// <div class="mb-3">
+//   <label for="encounter-name" class="form-label">Encounter Name</label>
+//  <input type="text" class="form-control" id="encounter-name">
+//</div>
+// <!--Name Info-->
+// <div class="row"> 
+//     <!--NPC Name--> 
+//     <div class="col-sm-3">
+//         <label for="npc-name" class="form-label">NPC Name</label>
+//         <input type="text" class="form-control" id="npc-name">
+//     </div>
+//     <!--NPC plot points-->
+//     <div class="col-sm-5">
+//         <label for="plot-points" class="form-label">Plot Points</label>
+//         <textarea class="form-control" id="plot-points" name="plot-points"  
+//         rows="8" cols="100" placeholder="Write a plot point"></textarea>
+//     </div>
+//     <!--Save Button-->
+//     <div class="col-sm-4">
+//         <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+//             <button type="button" id="add-npcs" class="btn btn-primary">Create</button>
+// <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->                                
+//             <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+//             <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
+//         </div>
+//     </div>
+// </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  ----------------BELOW IS IMPORTANT STUFF FOR MARC POSSIBLY-----------------------------
 
 // const characters = [];
