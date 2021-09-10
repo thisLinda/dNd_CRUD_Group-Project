@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temp DnD Start</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-7">
+                <h3>Menu</h3>
+            </div>
+            <div class="col-5">
+                <button class="btn btn-success float-end" onclick="openEditDishModal()">Create</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Thing</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dishes-container"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="edit-dish-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create Event</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="mb-3">
+                      <label for="dish-name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="dish-name">
+                  </div>
+                  <div class="mb-3">
+                      <label for="dish-type" class="form-label">Type</label>
+                      <select class="form-select" id="dish-type">
+                          <option value="Battle">Battle</option>
+                          <option value="Encounter">Encounter</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label for="dish-price" class="form-label">Price</label>
+                      <input type="number" class="form-control" id="dish-price">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="tempEvents.js"></script>
+</body>
+</html>
