@@ -1,8 +1,11 @@
-const characters = [];
-
-
-
 //  ----------------BELOW IS IMPORTANT STUFF FOR MARC POSSIBLY-----------------------------
+
+// const characters = [];
+
+// const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
+
+// let currentCharacterToEditId = -1;
+// let nextCharacterId = 0;
 
 // function saveCharacter() {
 //     let character = characters.find(character => characters.id === currentCharacterToEditId);
@@ -80,54 +83,15 @@ function deleteEvent(id) {
 
 // CREATE
 
-// const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
-
-// let currentCharacterToEditId = -1;
-// let nextCharacterId = 0;
-
-
 const encounterModal = new bootstrap.Modal(document.getElementById('create-encounter'));
 const battleModal = new bootstrap.Modal(document.getElementById('create-battle'));
 let currentEventToEditId = -1;
 let nextEventId = 0;
 
 
-// function saveEditEncounter() {
-//     let event = events.find(event => events.id === currentEventToEditId);
-//     if(!event) {
-//         event = { id: currentEventToEditId }
-//         events.push(event);
-//     }
 
-//     event.name = `The Village of ${$('#encounter-name').val()}`;
-
-//     encounterModal.hide();
-
-//     renderEvents();
-// }
-
-
-// function saveEditBattle() {
-//     let event = events.find(event => events.id === currentEventToEditId);
-//     if(!event) {
-//         event = { id: currentEventToEditId }
-//         events.push(event);
-//     }
-
-//     event.name = `The Battle of ${$('#battle-name').val()}`;
-
-//     battleModal.hide();
-
-//     renderEvents();
-// }
-
-
+// renders a battle/event and returns it to the renderEvents function
 function renderEvent(event) {
-    // for(let character of characters){
-    //     characterString = '';
-    //     characterString += character + "\n";
-    // }
-
     if ((event['eventType']) === "battle"){
         return (
         `<div id="${event._id}" class="card">
@@ -230,7 +194,8 @@ function renderEvent(event) {
 
 
 
-// ---------SAVEEEEEEEEEEE!!!!!!!------------
+// renders any events that have been added to the events array 
+//and puts in the campaign list at the bottom of the webpage 
 function renderEvents() {
     $("#campaign").empty().append(
         events.map(event => renderEvent(event))
@@ -258,7 +223,7 @@ function renderEvents() {
 //     }
 // }
 
-// UNDERSTAND THIS BETTER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//starts the page with rendered events if there are any
 $(() => {
     renderEvents();
 })
@@ -266,41 +231,41 @@ $(() => {
 
 console.log(events);
 
-//--------------EDIT----------------------------------------------
+//--------------EDIT---Need to work on-------------------------------------------
 
-function openEventToEditModal(id) {
-    let event = events.find(event => event.id === id);
-    if(!event) {
-        event = {
-            // id: nextEventId,
-            // name: '',
-            // monsters: '',
-            // hp: '',
-        }
-        // nextEventId++;
+// function openEventToEditModal(id) {
+//     let event = events.find(event => event.id === id);
+//     if(!event) {
+//         event = {
+//             // id: nextEventId,
+//             // name: '',
+//             // monsters: '',
+//             // hp: '',
+//         }
+//         // nextEventId++;
 
-    }
-    console.log((event['eventType']))
+//     }
+//     console.log((event['eventType']))
     
-    if ((event['eventType']) === "encounter"){
-        encounterModal.show();
-        console.log("this is an encounter")
-    } else {
-        battleModal.show();
-        console.log("this is a battle")  
-    }
+//     if ((event['eventType']) === "encounter"){
+//         encounterModal.show();
+//         console.log("this is an encounter")
+//     } else {
+//         battleModal.show();
+//         console.log("this is a battle")  
+//     }
 
-    currentEventToEditId = event.id;
+//     currentEventToEditId = event.id;
 
-    // $("event-name").val(event.name);
-    // $("monster-name").val(event.monsters);
-    // $("monster-hp").val(event.hp);
+//     // $("event-name").val(event.name);
+//     // $("monster-name").val(event.monsters);
+//     // $("monster-hp").val(event.hp);
    
-    console.log(events);
-}
+//     console.log(events);
+// }
 
 
-
+// saves an entered encounter event
 function saveEditEncounter(id) {
     let event = events.find(event => events.id === currentEventToEditId);
     if(!event) {
@@ -321,7 +286,7 @@ function saveEditEncounter(id) {
     console.log((event['eventType']))
 }
 
-
+//saves an entered battle event
 function saveEditBattle(id) {
     let event = events.find(event => events.id === currentEventToEditId);
     if(!event) {
