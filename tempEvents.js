@@ -41,6 +41,10 @@ function renderDish(dish) {
         <button class="btn btn-sm btn-primary" onclick="openEditDishModal(${dish.id})">Update Event</button>
                 <button class="btn btn-sm btn-danger" onclick="deleteDish(${dish.id})">Delete Event</button>
                 </div>
+                <div class="card-body"><button type="button" id="create-new-npc" class="btn btn-primary" 
+                data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add NPC</button>
+                  <button type="button" id="create-new-monster" class="btn btn-primary" 
+                data-bs-toggle="modal" data-bs-target="#create-monster-modal">Add Monster</button></div>
     <div class="card-body" id="put-sub-code-here">
     </div>
         </div>`
