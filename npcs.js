@@ -18,13 +18,19 @@ const npcs = [
 }
 ]
 
+//?does this work?
 
-function addNpc() {
-console.log("npc added");
-}
+  document.getElementById('add-npcs').addEventListener('click', () => {
+  npcs.push({ 
+    id: npcs.length+=2,
+    name: `${document.getElementById('npc-name').value}`,
+    plot: `${document.getElementById('npc-plot').value}`
+  });
+  console.log(npcs);
+  }); //end arrow function
 
 function editNpcPlot() {
-
+console.log("npc plot edited");
 }
 
 function showAllNpcs() {
@@ -32,9 +38,9 @@ function showAllNpcs() {
 }
 
 function deleteNpc() {
-
+//slice or splice
 }
 
 function calculateId() {
-  // equals npcs.length + 2?
+  // equals npcs.length + 1?
 }
