@@ -31,7 +31,7 @@ function renderDishes() {
 
 function renderDish(dish) {
     return (
-        `<div class="card" style="width: 15rem;">
+        `<div class="card">
         <div class="card-body">
         <h3 class="card-title">${dish.id}: ${dish.name}</h3>
         <h6>${dish.type}</h6>
