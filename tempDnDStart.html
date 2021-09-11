@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temp DnD Start</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-7">
+                <h3>The story thus far...</h3>
+            </div>
+            <div class="col-5">
+                <button class="btn btn-success float-end" onclick="openEditDishModal()">Create</button>
+            </div>
+        </div>
+        <div id="dishes-container"></div>
+        <!-- <div class="row mt-3">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Plot</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dishes-container"></tbody>
+                </table>
+            </div>
+        </div> -->
+    </div>
+    <div id="edit-dish-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create Event</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="mb-3">
+                      <label for="dish-name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="dish-name">
+                  </div>
+                  <div class="mb-3">
+                      <label for="dish-type" class="form-label">Type</label>
+                      <select class="form-select" id="dish-type">
+                          <option value="Battle">Battle</option>
+                          <option value="Encounter">Encounter</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label for="dish-price" class="form-label">Plot</label>
+                      <input type="number" class="form-control" id="dish-price">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------monster modal form-------------------------------- -->
+<div id="create-monster-modal" class="modal" tabindex="-1"> 
+    <div class="modal-dialog modal-xl">  
+      <div class="modal-content"> 
+        <div class="modal-header">  
+          <h5 class="modal-title">Add Monster</h5> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+        </div>
+        <div class="modal-body">
+          <form>     
+              <div class="mb-3">
+                  <label for="monster-name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="monster-name">
+              </div>
+              <div class="mb-3">
+                <label for="monster-type" class="form-label">Type</label>
+                <input type="text" class="form-control" id="monster-type">
+            </div>
+              <div>
+                  <label for="monster-health-points" class="form-label">HP</label>
+                  <input type="number" class="form-control" id="monster-health-points">
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> <!--function needs to be updated to "saveCharacter" function-->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ---------------------npc modal form------------------------------------- -->
+  <div id="create-npc-modal" class="modal" tabindex="-1"> 
+    <div class="modal-dialog modal-xl">  
+      <div class="modal-content"> 
+        <div class="modal-header">  
+          <h5 class="modal-title">Add Non-Playing Character</h5> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+        </div>
+        <div class="modal-body">
+          <form>     
+              <div class="mb-3">
+                  <label for="npc-name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="npc-name">
+              </div>
+              <div class="mb-3">
+                <label for="npc-plot" class="form-label">Plot</label>
+                <input type="text" class="form-control" id="npc-plot">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-secondary" id="edit-npcs-plot">Edit</button> 
+          <button type="button" class="btn btn-success" id="add-npcs">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- sample card -->
+  <div class="card" style="width: 18rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h3 class="card-title">Event Name</h3>
+      <h6>Event Type</h6>
+
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-body">
+buttons
+    </div>
+    <div class="card-body">
+<table>
+    <tr><th>id</th><th>name</th><th>plot</th><th>buttons</th></tr>
+    <tr><td>1</td><td>aewt</td><td>aet</td><td>buttons</td></tr>
+</table>
+</div>
+
+  </div>
+
+
+
+
+
+
+
+
+  
+
+<!-- end stuff -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="data.js"></script>
+    <script src="tempEvents.js"></script>
+    <script src="npcs.js"></script>
+    <script src="monsters.js"></script>
+</body>
+</html>

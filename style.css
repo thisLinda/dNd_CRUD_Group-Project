@@ -1,0 +1,161 @@
+/* This is a test css */
+
+.container{
+    background: url(https://cdn.wallpapersafari.com/39/66/5MocTu.jpg) no-repeat center center fixed; 
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   }
+   ​
+   ​
+   ​
+   #heading{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   font-size: 60px;
+     color: rgb(196, 31, 31);
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   }
+   ​
+   ​
+   #add-a{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   font-size: 45px;
+     color: rgb(196, 31, 31);
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   }
+   ​
+   ​
+   ​
+   #new-character{
+   background-image: url(https://img.freepik.com/free-photo/rustic-stone-texture-background_24972-1640.jpg?size=626&ext=jpg&ga=GA1.2.2036364465.1630886400);
+   -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: rgb(196, 31, 31);
+   -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   }
+   ​
+   ​
+   #new-event{
+   background-image: url(https://img.freepik.com/free-photo/rustic-stone-texture-background_24972-1640.jpg?size=626&ext=jpg&ga=GA1.2.2036364465.1630886400);
+   -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: rgb(196, 31, 31);
+   -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   }
+   ​
+   #new-monster{
+   /* background-image: url(https://img.freepik.com/free-photo/rustic-stone-texture-background_24972-1640.jpg?size=626&ext=jpg&ga=GA1.2.2036364465.1630886400);
+   -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover; */
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: rgb(196, 31, 31);
+   -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   width: 400px;
+   }
+   ​
+   #new-npc{
+   background-image: url(https://img.freepik.com/free-photo/rustic-stone-texture-background_24972-1640.jpg?size=626&ext=jpg&ga=GA1.2.2036364465.1630886400);
+   -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: rgb(196, 31, 31);
+   -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: white;
+   width: 400px;
+   }
+   
+   #create-new-character{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   width: 200px;
+   height: 50px;
+   font-size: larger;
+   }
+   ​
+   ​
+   #create-new-event{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   width: 200px;
+   height: 50px;
+   font-size: larger;
+   }
+   ​
+   #create-new-monster{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   width: 200px;
+   height: 50px;
+   font-size: larger;
+   }
+   ​
+   #create-new-npc{
+   text-align: center;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   width: 200px;
+   height: 50px;
+   font-size: larger;
+   }
+   ​
+   ​
+   h3{
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: rgb(196, 31, 31);
+   -webkit-text-stroke-width: 0.5px;
+     -webkit-text-stroke-color: white;
+   }
+   ​
+   #create-character-modal{
+   color:rgb(196, 31, 31)
+   }
+   ​
+   #create-new-monster{
+   width: 90px;
+   height: 60px;
+   }
+   ​
+   #edit-monster{
+   width: 90px;
+   height: 60px;
+   }
+   ​
+   #delete-monster{
+   width: 90px;
+   height: 60px;
+   }
+   ​
+   #health-text{
+   color: darkred;
+   font-weight: bold;
+   font-size: larger;
+   }
+   ​
+   #monster-text{
+   color: darkred;
+   font-weight: bold;
+   font-size: larger;
+   }
