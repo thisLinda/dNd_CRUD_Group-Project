@@ -148,6 +148,8 @@ function renderMonsters() {
     );                                                  // and changed parameter inside to "monster" so it would run function on right thing?
 }
 
+
+
 //starts the page with rendered monsters if there are any
 $(() => {
     renderMonsters();
