@@ -90,6 +90,7 @@
             <h5 style="color: #fff;">NPCs</h5>
             <hr>
             <div id="NPC-list"> <!--same as app in the house video, append the created NPCs to this-->
+              
             </div>
         </div>
 
@@ -338,7 +339,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="button-box">
-                        <button type="button" id="create-new-npc" class="btn btn-primary" onclick="createNPC()">Create</button>                             
+                        <button type="button" id="create-new-npc" class="btn btn-primary" onclick="saveNPC()">Create</button>                             
                         <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
                         <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
                     </div>
@@ -348,8 +349,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-          <button type="button" class="btn btn-secondary" id="edit-npcs-plot">Edit</button> 
-          <button type="button" class="btn btn-success" id="add-npcs">Save</button>
+          <!-- <button type="button" class="btn btn-secondary" id="edit-npcs-plot">Edit</button>  -->
+          <button type="button" class="btn btn-success" id="add-npcs" onclick="saveNPC()">Save</button>
         </div>
       </div>
     </div>
