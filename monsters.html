@@ -4,86 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jennifer-HTML</title>
-    <link rel="stylesheet" href="style.css"></link>
+    <title>D&D Campaign App</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="container">
+<body  class="container">
     <main>
         <div class="p-5 mb-2 bg-info">
         <h1>Welcome to the Campaign Creator!</h1>
         </div>
         <br>
-        <!-- <div class="container py-4">
-            <div class="row"> -->
-                <!-- <h2>Add a...</h2> -->
-                <!-- <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+        <div class="container py-4">
+            <div class="row">
+                <h2>Add a...</h2>
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
                     <div id="new-character" class="container-fluid py-5">
                         <h2 class="display-5 fw-bold">Character</h2>
                         <button type="button" id="create-new-character" class="btn btn-primary" 
-                        data-bs-toggle="modal" data-bs-target="#create-character-modal">Create Character</button> 
+                        data-bs-toggle="modal" data-bs-target="#create-character-modal">Create Character</button> <!--needs to be updated to actual function-->
                     </div>
-                </div> -->
-                <!-- <div class="col-sm-1"></div>
+                </div>
+                <div class="col-sm-1"></div>
                 <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
                     <div id="new-event" class="container-fluid py-5">
                         <h2 class="display-5 fw-bold">Event</h2>
                         <button type="button" id="create-new-event" class="btn btn-primary" 
                         data-bs-toggle="modal" data-bs-target="#create-event-modal">Add an Event</button>
+                        
                     </div>
-                </div> -->
-<!-- ----------------------monster button-------------------------------- -->
-            <div class="col-sm-1"></div>
-              <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
-                <div id="new-monster" class="container-fluid py-5">
-                  <h2 class="display-5 fw-bold">Monster</h2>
-                  <button type="button" id="create-new-monster" class="btn btn-primary" 
-                  data-bs-toggle="modal" data-bs-target="#create-monster-modal">Create Your Monster</button>
                 </div>
-              </div>
-            </div>
-<!-- ----------------------npc button-------------------------------- -->
-              <!-- <div class="col-sm-1"></div>
-              <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
-                  <div id="new-npc" class="container-fluid py-5">
-                      <h2 class="display-5 fw-bold">Non-Playing Character</h2>
-                      <button type="button" id="create-new-npc" class="btn btn-primary" 
-                      data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add an NPC</button>
-                  </div>
-              </div>
-          </div>
-        </div> -->
-<!-- ----------------------/npc button-------------------------------- -->
+            </div>    
+    
 
-        <!-- <br>
+
+            <div class="row">
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-monster" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Monster</h2>
+                        <button type="button" id="create-new-monster" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-monster-modal">Create Monster</button> 
+                    </div>
+                </div>
+  
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 p-5 mb-2 bg-info rounded-3">
+                    <div id="new-npc" class="container-fluid py-5">
+                        <h2 class="display-5 fw-bold">Non-Playable Character</h2>
+                        <button type="button" id="create-new-npc" class="btn btn-primary" 
+                        data-bs-toggle="modal" data-bs-target="#create-npc-modal">Add an NPC</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <br>
         <br>
         <div>
+            <!--Character List-->
             <h3>Our Intrepid Heroes...</h3>
             <hr>
-            <div id="character-list"> <!--same as app in the house video-->
-            <!-- </div>
+            <div id="character-list"> <!--same as app in the house video, append the created characters to this-->
+            </div>
         </div>
         <div>
+             <!--Events List-->
             <h3>The Story Thus Far...</h3>
             <hr>
-            <div id="campaign"> <!--same as app in the house video-->
-            <!-- </div>
-        </div>  -->
-
+            <div id="campaign"> <!--same as app in the house video, I'm appending the events to this -->
+            </div>
+        </div>
+        <div>
+            <h5>NPCs</h5>
+            <hr>
+            <div id="NPC-list"> 
+            </div>
+        </div>
+        <div>
+            <h5>Monsters</h5>
+            <hr>
+            <div id="monster-list"> 
+            </div>
+        </div>
+        
         <!--Character Modal Form-->
-        <!-- <div id="create-character-modal" class="modal" tabindex="-1"> "edit-dish-modal" from Natalie -->
-            <!-- <div class="modal-dialog modal-xl">  
+        <div id="create-character-modal" class="modal fade" tabindex="-1"> <!--"edit-dish-modal" from Natalie-->
+            <div class="modal-dialog modal-xl">  
               <div class="modal-content"> 
                 <div class="modal-header">  
-                  <h5 class="modal-title">Add Character</h5> 
+                  <h4 class="modal-title">Welcome to the team!</h4> 
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
                 </div>
                 <div class="modal-body">
                   <form>     
+                       <!--Character Name-->
                       <div class="mb-3">
                           <label for="character-name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="character-name">
                       </div>
+                      <!--Character Race-->
                       <div class="mb-3">
                           <label for="character-race" class="form-label">Race</label>
                           <select class="form-select" id="character-race">
@@ -98,6 +118,7 @@
                               <option value="Tiefling">Tiefling</option>
                           </select>
                       </div>
+                      <!--Character Class(role)-->
                       <div class="mb-3">
                         <label for="character-class" class="form-label">Class</label>
                         <select class="form-select" id="character-class">
@@ -116,91 +137,247 @@
 
                         </select>
                     </div>
+                        <!--Character HP-->
                       <div>
                           <label for="health-points" class="form-label">HP</label>
                           <input type="number" class="form-control" id="health-points">
                       </div>
                   </form>
                 </div>
+                <!--saving/exiting buttons-->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-                  <button type="button" class="btn btn-success" onclick="saveEditDish()">Save</button> 
+                  <button type="button" class="btn btn-success" onclick="saveCharacter()">Save</button>
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
-<!-- ------------------monster modal form-------------------------------- -->
-<div id="create-monster-modal" class="modal" tabindex="-1"> 
-  <div class="modal-dialog modal-xl">  
-    <div class="modal-content"> 
-      <div class="modal-header">  
-        <h5 class="modal-title">Add Monster</h5> 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
-      </div>
-      <div class="modal-body">
-        <form>     
-          <div class="mb-3">
-              <label for="monster-name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="monster-name">
-          </div>
-          <div class="mb-3">
-            <label for="monster-type" class="form-label">Type</label>
-            <input type="text" class="form-control" id="monster-type">
-          </div>
-          <div>
-            <label for="monster-hp" class="form-label">HP</label>
-            <input type="number" class="form-control" id="monster-hp">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-        <button type="button" class="btn btn-secondary" id="edit-monster">Edit</button> 
-        <button type="button" class="btn btn-secondary" id="delete-monster">Delete</button>
-        <!-- <button type="button" class="btn btn-success" id="add-monster" onclick="saveEditDish()">Save</button> function needs to be updated to "saveCharacter" function -->
-        <button type="button" class="btn btn-success" id="add-monster">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ---------------------npc modal form------------------------------------- -->
-<!-- <div id="create-npc-modal" class="modal" tabindex="-1"> 
-  <div class="modal-dialog modal-xl">  
-    <div class="modal-content"> 
-      <div class="modal-header">  
-        <h5 class="modal-title">Add Non-Playing Character</h5> 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
-      </div>
-      <div class="modal-body">
-        <form>     
-            <div class="mb-3">
-                <label for="npc-name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="npc-name">
+        <!--Event Modal Form-->  
+        <!--First Modal-->
+        <div class="modal fade" id="create-event-modal" aria-hidden="true" aria-labelledby="eventModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="event-modal">What happens in the Forgotten Realms, stays in the Forgotten Realms...</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    What would you like to make?
+                </div>
+                <!--create battle or encounter buttons-->
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#create-battle" data-bs-toggle="modal" data-bs-dismiss="modal">Battle</button>
+                  <button class="btn btn-primary" data-bs-target="#create-encounter" data-bs-toggle="modal" data-bs-dismiss="modal">Encounter</button>
+                </div>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="npc-plot" class="form-label">Plot</label>
-              <input type="text" class="form-control" id="npc-plot">
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-        <button type="button" class="btn btn-secondary" id="edit-npcs-plot">Edit</button> 
-        <button type="button" class="btn btn-success" id="add-npcs">Save</button>
+
+ 
+          <!--Battle Modal-->
+          <div class="modal fade" id="create-battle" aria-hidden="true" aria-labelledby="battleModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="battleModalLabel">Let's get ready to rumble!</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <!--Battle Name-->
+                        <div class="mb-3">
+                            <label for="battle-name" class="form-label">Battle Name</label>
+                            <input type="text" class="form-control" id="battle-name">
+                        </div>
+                        <!--Monster Info-->
+                        <div class="row" id="new-monster">  
+                            <!--Monster Name-->
+                            <div class="col-sm-6">
+                                <label for="monster-name" class="form-label">Monster</label>
+                                <input type="text" class="form-control" id="monster-name">
+                            </div>
+                            <!--Monster HP-->
+                            <div class="col-sm-2">
+                                <label for="monster-hp" class="form-label">HP</label>
+                                <input type="number" class="form-control" id="monster-hp">
+                            </div>
+                            <!--Save Button-->
+                            <div class="col-sm-4">
+                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+                                    <button type="button" id="add-monster" class="btn btn-primary">Create</button>
+                <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->  
+                                    <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
+                                    <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Monster List-->
+                    <div>
+                        <h5>Monsters</h5>
+                        <hr>
+                        <div id="monster-list"> <!--same as app in the house video, you're appending the created monster to this-->
+                        </div>
+                    </div>
+                </div>
+                <!--saving/exiting buttons-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                    <button type="button" class="btn btn-success" onclick="saveEditBattle()">Save</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Encounter Modal-->
+          <div class="modal fade" id="create-encounter" aria-hidden="true" aria-labelledby="encounterModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="encounterModalLabel">An Elf, a Gnome, and a Tiefling walk into a bar...</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                     <form>
+                         <!--Encounter Info-->
+                        <div class="mb-3">
+                            <label for="encounter-name" class="form-label">Encounter Name</label>
+                            <input type="text" class="form-control" id="encounter-name">
+                        </div>
+                        <!--Name Info-->
+                        <div class="row"> 
+                            <!--NPC Name--> 
+                            <div class="col-sm-3">
+                                <label for="npc-name" class="form-label">NPC Name</label>
+                                <input type="text" class="form-control" id="npc-name">
+                            </div>
+                            <!--NPC plot points-->
+                            <div class="col-sm-5">
+                                <label for="plot-points" class="form-label">Plot Points</label>
+                                <textarea class="form-control" id="plot-points" name="plot-points" 
+                                rows="8" cols="100" placeholder="Write a plot point"></textarea>
+                            </div>
+                            <!--Save Button-->
+                            <div class="col-sm-4">
+                                <div class="button-box"> <!--calling this button box so you can more easily target it, Marc-->
+                                    <button type="button" id="create-new-npc" class="btn btn-primary" onclick="createNPC()">Create</button>
+                    <!--Use the code below in your render function to make these buttons show up next to the NPC you're appending-->                                
+                                    <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+                                    <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--NPC List-->
+                    <div>
+                        <h5>NPCs</h5>
+                        <hr>
+                        <div id="NPC-list"> <!--same as app in the house video-->
+                        </div>
+                    </div>
+                </div>
+                <!--saving/exiting buttons-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                    <button type="button" class="btn btn-success" onclick="saveEditEncounter()">Save</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!------------------monster modal form-------------------------------->
+<div id="create-monster-modal" class="modal fade" tabindex="-1"> 
+    <div class="modal-dialog modal-xl">  
+      <div class="modal-content"> 
+        <div class="modal-header">  
+          <h5 class="modal-title">Add Monster</h5> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+        </div>
+        <div class="modal-body">
+          <form>     
+              <div class="row" id="new-monster">  
+                
+                <div class="col-sm-3">
+                    <label for="monster-name" class="form-label">Monster</label>
+                    <input type="text" class="form-control" id="monster-name">
+                </div>
+               
+                <div class="col-sm-3">
+                    <label for="monster-type" class="form-label">Type</label>
+                    <input type="text" class="form-control" id="monster-type">
+                </div>
+               
+                <div class="col-sm-2">
+                    <label for="monster-hp" class="form-label">HP</label>
+                    <input type="number" class="form-control" id="monster-hp">
+                </div>
+               
+                <div class="col-sm-4">
+                    <div class="button-box"> 
+                        <button type="button" id="create-new-monster" class="btn btn-primary" onclick="createMonster()">Create</button> 
+                        <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
+                        <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
+                    </div>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-success" id="add-monster">Save</button>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
+  
+  <!---------------------npc modal form-------------------------------------> 
+  <div id="create-npc-modal" class="modal fade" tabindex="-1"> 
+    <div class="modal-dialog modal-xl">  
+      <div class="modal-content"> 
+        <div class="modal-header">  
+          <h5 class="modal-title">Add Non-Playing Character</h5> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  
+        </div>
+        <div class="modal-body">
+          <form>     
+            <div class="row"> 
+                <div class="col-sm-3">
+                    <label for="npc-name" class="form-label">NPC Name</label>
+                    <input type="text" class="form-control" id="npc-name">
+                </div>
+                <div class="col-sm-5">
+                    <label for="npc-plot" class="form-label">Plot Points</label>
+                    <textarea class="form-control" id="npc-plot" name="plot-points" 
+                    rows="8" cols="100" placeholder="Write a plot point"></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <div class="button-box">
+                        <button type="button" id="create-new-npc" class="btn btn-primary" onclick="createNPC()">Create</button>                             
+                        <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
+                        <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
+                    </div>
+                </div> 
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+          <button type="button" class="btn btn-secondary" id="edit-npcs-plot">Edit</button> 
+          <button type="button" class="btn btn-success" id="add-npcs">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+              
 
-<!-- <h1>Random Heading</h1> -->
+
     </main>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <!-- <script src="events.js"></script> -->
+    <script src="charactersMarc.js"></script>
     <script src="monsters.js"></script>
-    <!-- <script src="npcs.js"></script> -->
+    <script src="npcs.js"></script>
+    <script src="events.js"></script>
 
 </body>
 </html>
