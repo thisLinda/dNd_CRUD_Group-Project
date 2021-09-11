@@ -34,8 +34,8 @@
                     <div id="new-event" class="container-fluid py-5">
                         <h2 class="display-5 fw-bold">Event</h2>
                         <button type="button" id="create-new-event" class="btn btn-primary" 
-                        data-bs-toggle="modal" data-bs-target="#create-event-modal">Add an Event</button>
-                        
+                        onclick="openEventModal()">Add an Event</button>
+                        <!--data-bs-target="#create-event-modal"       data-bs-toggle="modal"-->
                     </div>
                 </div>
             </div>    
@@ -289,14 +289,14 @@
                 </div>
                
                 <div class="col-sm-2">
-                    <label for="m-health-points" class="form-label">HP</label>
-                    <input type="number" class="form-control" id="m-health-points">
+                    <label for="monster-hp" class="form-label">HP</label>
+                    <input type="number" class="form-control" id="monster-hp">
                 </div>
                
                 <div class="col-sm-4">
                     <div class="button-box"> 
-                        <button type="button" id="add-monster" class="btn btn-primary">Create</button> 
-                        <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
+                        <button type="button" id="add-monster" class="btn btn-primary" onclick="saveMonster()">Create</button> 
+                        <button type="button" id="edit-monster" class="btn btn-success" onclick="saveMonster()">Edit</button>
                         <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
                     </div>
                 </div>
@@ -305,7 +305,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
-          <button type="button" class="btn btn-success" id="add-monster">Save</button>
+          <button type="button" class="btn btn-success" id="add-monster" onclick="saveMonster()">Save</button>
         </div>
       </div>
     </div>

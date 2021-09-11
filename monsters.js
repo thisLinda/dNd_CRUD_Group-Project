@@ -92,130 +92,60 @@
 //     );
 // }
 
-const events = [];
 
 // DELETE
 function deleteMonster(id) {
-  let monsterIndex = monsters.findMonster(monster => monster.id === id);
+  let monsterIndex = monsters.findIndex(monster => monster.id === id); //changed this to "findIndex" since that's an array method
   monsters.splice(monsterIndex, 1);
   renderMonsters(); 
 }
 
 // CREATE
-const encounterModal = new bootstrap.Modal(document.getElementById('create-encounter'));
-const battleModal = new bootstrap.Modal(document.getElementById('create-battle'));
-let currentEventToEditId = -1;
+const monsterModal = new bootstrap.Modal(document.getElementById('create-monster-modal'));
+// const battleModal = new bootstrap.Modal(document.getElementById('create-battle'));
+// let currentEventToEditId = -1;
 let currentMonsterToEditId = -1;
-let nextEventId = 0;
+// let nextEventId = 0;
 let nextMonsterId = 0;
 
-// I don't need to do render an event
+
 // renders a battle/event and returns it to the renderEvents function
-function renderEvent(event) {
-    if ((event['eventType']) === "battle"){
-        return (
-        `<div id="${event._id}" class="card">
+function renderMonster(monster) {
+      return (
+        `<div id="${monster.id}" class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-sm"><h2>${event.name}</h2></div>
-                    <div class="col-sm"><button class="btn btn-danger" onclick="openEventToEditModal('${event._id}')">Edit</button></div>
-                    <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button></div>
+                    <div class="col-sm"><h2>${monster.name}</h2></div>
+                    <div class="col-sm"><button class="btn btn-danger"  id="add-monster" onclick="saveMonster('${monster._id}')">Edit</button></div>
+                    <div class="col-sm"><button class="btn btn-danger" onclick="deleteMonster('${monster._id}')">Delete</button></div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="card">
                     <div class="row">
-                        <form>     
-                            <div class="row" id="new-monster">  
-                            
-                            <div class="col-sm-3">
-                                <label for="monster-name" class="form-label">Monster</label>
-                                <input type="text" class="form-control" id="monster-name">
+                        <div class="col-sm">
+                            <div id="${monster.id}-monster-type">
+                            ${monster.type}
                             </div>
-                            
-                            <div class="col-sm-3">
-                                <label for="monster-type" class="form-label">Type</label>
-                                <input type="text" class="form-control" id="monster-type">
-                            </div>
-                            
-                            <div class="col-sm-2">
-                                <label for="monster-hp" class="form-label">HP</label>
-                                <input type="number" class="form-control" id="monster-hp">
-                            </div>
-                            
-                            <div class="col-sm-4">
-                                <div class="button-box"> 
-                                    <button type="button" id="add-monster" class="btn btn-primary">Create</button> 
-                                    <button type="button" id="edit-monster" class="btn btn-success" onclick="editMonster()">Edit</button>
-                                    <button type="button" id="delete-monster" class="btn btn-danger" onclick="deleteMonster()">Delete</button>
-                                </div>
-                            </div>
-                            </div>
-                        </form>
-                        <div>
-                            <h5>Monsters</h5>
-                            <hr>
-                            <div id="${monster.id}-monster-list"> 
+                        </div>
+                        <div class="col-sm">
+                            <div id="${monster.id}-monster-hp">
+                            ${monster.hp}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div><br>`
-    )
-    } else {
-        return (
-            `<div id="${event._id}" class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-sm"><h2>${event.name}</h2></div>
-                        <div class="col-sm"><button class="btn btn-danger" onclick="openEventToEditModal('${event._id}')">Edit</button></div>
-                        <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="card">
-                        <form>
-                            <div class="row"> 
-                                <div class="col-sm-3">
-                                    <label for="npc-name" class="form-label">NPC Name</label>
-                                    <input type="text" class="form-control" id="${event._id}-npc-name">
-                                </div>
-                                <!--NPC plot points-->
-                                <div class="col-sm-5">
-                                    <label for="npc-plot" class="form-label">Plot Points</label>
-                                    <textarea class="form-control" id="${event._id}-npc-plot" name="npc-plot" 
-                                    rows="8" cols="100" placeholder="Write a plot point"></textarea>
-                                </div>
-                                <!--Save Button-->
-                                <div class="col-sm-4">
-                                    <div class="button-box"> 
-                                        <button type="button" id="add-npcs" class="btn btn-primary">Create</button>                                
-                                        <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
-                                        <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div>
-                            <h5>NPCs</h5>
-                            <hr>
-                            <div id="${event._id}-NPC-list"> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><br>`
-        )
-    }
+      )
 }
 
 // renders any monsters that have been added to the monsters array 
 //and puts in the campaign list at the bottom of the webpage 
 function renderMonsters() {
-    $("#button-box").empty().append(
-        monsters.map(monster => monsterEvent(event))
-    );
+    $("#monster-list").empty().append(                  //changed this to "monster-list" so it was going to the right place
+        monsters.map(monster => renderMonster(monster)) //changed this to your function name (you will need to make a "renderMonster" function)
+    );                                                  // and changed parameter inside to "monster" so it would run function on right thing?
 }
 
 //starts the page with rendered monsters if there are any
@@ -225,79 +155,64 @@ $(() => {
 console.log('hello');
 
 function saveMonster(id) {
-    let monster = monsters.find(monster => currentMonsterToEdit.id === currentMonsterToEditId);
+    let monster = monsters.find(monster => monsters.id === currentMonsterToEditId);
     if(!monster) {
         monster = { 
             id: currentMonsterToEditId,
-            monsters: [] 
+            name: "",
+            type: "",
+            hp: 2,
+            // monsters: []      I am not sure you need this, or you might want to call it traits if you're storing the monster's information?
         }
         
         monsters.push(monster);
     }
 
-    monster.name = `${$('#add-monster').val()}`;
-    monster.type = `${$('#add-monster').val()}`;
-    monster.hp = `${$('#add-monster').val()}`;
+    monster.name = `${$('#monster-name').val()}`; //changed to "#monster-name" from "#add-monster"
+    monster.type = `${$('#monster-type').val()}`; //same
+    monster.hp = `${$('#monster-hp').val()}`; //same
     
-    encounterModal.hide();
+    monsterModal.hide();
 
     renderMonsters();
-    console.log((event['monsterType']))
+    // console.log((event['monsterType']))
 }
 
-//saves an entered battle event
-function saveEditBattle(id) {
-    let event = events.find(event => events.id === currentEventToEditId);
-    if(!event) {
-        event = { 
-            id: currentEventToEditId,
-            eventType: "battle",
-            eventBeings: [] 
-        }
 
-        events.push(event);
-    }
 
-    event.name = `The Battle of ${$('#battle-name').val()}`;
-    
-    battleModal.hide();
-
-    renderEvents();
-    console.log((event['eventType']))
-}
-=======
 //to hold the data
 let monsters = [
-  {
-  '_id': 1,
-  'event_id': 1,
-  'monster-name': 'Linda',
-  'monster-type': 'zombie',
-  'monster-hp': 6
-},
-  {
-  '_id': 2,
-  'event_id': 2,
-  'monster-name': 'notLinda',
-  'monster-type': 'notSmartie',
-  'monster-hp': -3
-},
-  {
-  '_id': 3,
-  'event_id': 3,
-  'monster-name': 'thisLinda',
-  'monster-type': 'ambitiono',
-  'monster-hp': 0
-  }
+//   {
+//   '_id': 1,
+//   'event_id': 1,
+//   'monster-name': 'Linda',
+//   'monster-type': 'zombie',
+//   'monster-hp': 6
+// },
+//   {
+//   '_id': 2,
+//   'event_id': 2,
+//   'monster-name': 'notLinda',
+//   'monster-type': 'notSmartie',
+//   'monster-hp': -3
+// },
+//   {
+//   '_id': 3,
+//   'event_id': 3,
+//   'monster-name': 'thisLinda',
+//   'monster-type': 'ambitiono',
+//   'monster-hp': 0
+//   }
 ]
 
-document.getElementById('add-monster').addEventListener('click', () => {
-  monsters.push({ 
-    id: monsters.length+=2,
-    name: `${document.getElementById('monster-name').value}`,
-    type: `${document.getElementById('monster-type').value}`,
-    hp: `${document.getElementById('monster-hp').value}`
-  })
-  console.log(monsters);
-});
+// document.getElementById('add-monster').addEventListener('click', () => {        //commented out so I could test stuff
+//   monsters.push({ 
+//     id: monsters.length+=2,
+//     name: `${document.getElementById('monster-name').value}`,
+//     type: `${document.getElementById('monster-type').value}`,
+//     hp: `${document.getElementById('monster-hp').value}`
+//   });
+//   console.log(monsters);
+// });
+
 

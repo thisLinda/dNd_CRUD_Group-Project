@@ -82,75 +82,78 @@
 
 //  ----------------BELOW IS IMPORTANT STUFF FOR MARC POSSIBLY-----------------------------
 
-// const characters = [];
+const characters = [];
 
-// const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
+const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
 
-// let currentCharacterToEditId = -1;
-// let nextCharacterId = 0;
+let currentCharacterToEditId = -1;
+let nextCharacterId = 0;
 
-// function saveCharacter() {
-//     let character = characters.find(character => characters.id === currentCharacterToEditId);
-//     if(!character) {
-//         character = { id: currentCharacterToEditId }
-//         characters.push(character);
-//     }
+function saveCharacter() {
+    let character = characters.find(character => characters.id === currentCharacterToEditId);
+    if(!character) {
+        character = { id: currentCharacterToEditId }
+        characters.push(character);
+    }
 
-//     character.name = $('#character-name').val();
-//     character.race = $('#character-race').val();
-//     character.class = $('#character-class').val();
-//     character.hp = $('#health-points').val();
+    character.name = $('#character-name').val();
+    character.race = $('#character-race').val();
+    character.class = $('#character-class').val();
+    character.hp = $('#health-points').val();
 
-//     characterModal.hide();
+    characterModal.hide();
 
-//     renderCharacters();
-//     console.log(character.name);
-//     console.log(character.race);
-//     console.log(character.class);
-//     console.log(character.hp);
-//     console.log(currentCharacterToEditId);
+    renderCharacters();
+    console.log(character.name);
+    console.log(character.race);
+    console.log(character.class);
+    console.log(character.hp);
+    console.log(currentCharacterToEditId);
 
-// }
-
-
-// function renderCharacter(character) {
-//     return (
-//         `<div id="${character._id}" class="card">
-//             <div class="card-header">
-//                 <div class="row">
-//                     <div class="col-sm"><h2>${character.name}</h2></div>
-//                     <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${character._id}')">Delete</button></div>
-//                 </div>
-//             </div>
-//             <div class="card-body">
-//                 <div class="card">
-//                     <div class="row">
-//                         <div class="col-sm">
-//                             <div id="${character.race}">
-//                             </div>
-//                         </div>
-//                         <div class="col-sm">
-//                             <div id="${character.class}">
-//                             </div>
-//                         </div>
-//                         <div class="col-sm">
-//                             <div id="${character.hp}">
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div><br>`
-//     )
-
-// }
+}
 
 
-// function renderCharacters() {
-//     $("#character-list").empty().append(
-//         characters.map(character => renderCharacter(character))
-//     );
-// }
+function renderCharacter(character) {
+    return (
+        `<div id="${character._id}" class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm"><h2>${character.name}</h2></div>
+                    <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${character._id}')">Delete</button></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div id="${character._id}">
+                            ${character.race}
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div id="${character._id}">
+                            ${character.class}
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div id="${character._id}">
+                            ${character.hp}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br>`
+    )
+
+}
+
+
+function renderCharacters() {
+    $("#character-list").empty().append(
+        characters.map(character => renderCharacter(character))
+    );
+}
 
 const events = [];
 
@@ -159,18 +162,11 @@ const events = [];
 function deleteEvent(id) {
     let eventIndex = events.findIndex(event => event.id === id);
     events.splice(eventIndex, 1);
-    renderEvents(); // FIx this since not sure if correct function to call???  whole function should work though
+    renderEvents(); 
 }
 
 
 // CREATE
-
-const encounterModal = new bootstrap.Modal(document.getElementById('create-encounter'));
-const battleModal = new bootstrap.Modal(document.getElementById('create-battle'));
-let currentEventToEditId = -1;
-let nextEventId = 0;
-
-
 
 // renders a battle/event and returns it to the renderEvents function
 function renderEvent(event) {
@@ -180,7 +176,7 @@ function renderEvent(event) {
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm"><h2>${event.name}</h2></div>
-                    <div class="col-sm"><button class="btn btn-danger" onclick="openEventToEditModal('${event._id}')">Edit</button></div>
+                    <div class="col-sm"><button class="btn btn-danger" onclick="openBattleToEditModal('${event._id}')">Edit</button></div>
                     <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button></div>
                 </div>
             </div>
@@ -231,7 +227,7 @@ function renderEvent(event) {
                 <div class="card-header">
                     <div class="row">
                         <div class="col-sm"><h2>${event.name}</h2></div>
-                        <div class="col-sm"><button class="btn btn-danger" onclick="openEventToEditModal('${event._id}')">Edit</button></div>
+                        <div class="col-sm"><button class="btn btn-danger" onclick="openEncounterToEditModal('${event._id}')">Edit</button></div>
                         <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${event._id}')">Delete</button></div>
                     </div>
                 </div>
@@ -346,10 +342,76 @@ console.log(events);
 //     console.log(events);
 // }
 
+const eventModal = new bootstrap.Modal(document.getElementById('create-event-modal'));
+const encounterModal = new bootstrap.Modal(document.getElementById('create-encounter'));
+const battleModal = new bootstrap.Modal(document.getElementById('create-battle'));
+let currentEventToEditId = -1;
+let nextEventId = 0;
+
+function openEventModal(id) {
+    let event = events.find(e => e.id === id);
+    if(!event) {
+        event = {
+            id: nextEventId,
+            name: "",
+            // type: "Main",
+            // price: 2
+        }
+        nextEventId++;
+    }
+
+    currentEventToEditId = event.id;
+
+    $("#battle-name").val(event.name);
+    $('#encounter-name').val(event.name);
+
+    eventModal.show();
+}
+
+function openBattleToEditModal(id) {
+    let event = events.find(e => e.id === id);
+    if(!event) {
+        event = {
+            id: nextEventId,
+            name: "",
+            // type: "Main",
+            // price: 2
+        }
+        // nextEventId++;
+    }
+
+    currentEventToEditId = event.id;
+
+    $("#battle-name").val(event.name);
+     
+    battleModal.show();
+    
+}
+
+function openEncounterToEditModal(id) {
+    let event = events.find(e => e.id === id);
+    if(!event) {
+        event = {
+            id: nextEventId,
+            name: "",
+            // type: "Main",
+            // price: 2
+        }
+        // nextEventId++;
+    }
+
+    currentEventToEditId = event.id;
+
+    $("#encounter-name").val(event.name);
+     
+    encounterModal.show();
+    
+}
+
 
 // saves an entered encounter event
-function saveEditEncounter(id) {
-    let event = events.find(event => events.id === currentEventToEditId);
+function saveEditEncounter() {    //put id back in if need to
+    let event = events.find(e => e.id === currentEventToEditId);
     if(!event) {
         event = { 
             id: currentEventToEditId,
@@ -369,8 +431,8 @@ function saveEditEncounter(id) {
 }
 
 //saves an entered battle event
-function saveEditBattle(id) {
-    let event = events.find(event => events.id === currentEventToEditId);
+function saveEditBattle() {  //put id back in if need to
+    let event = events.find(e => e.id === currentEventToEditId);
     if(!event) {
         event = { 
             id: currentEventToEditId,

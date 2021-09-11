@@ -41,6 +41,7 @@ function createNPC() {
     );
 
 }
+}
 // //add npc
 //   document.getElementById('create-new-npc').addEventListener('click', () => {
 //     console.log(npcs.length);
