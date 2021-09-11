@@ -45,6 +45,7 @@ function renderCharacter(character) {
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm"><h2>${character.name}</h2></div>
+                    <div class="col-sm"><button class="btn btn-danger" onclick="saveCharacter('${character._id}')">Edit</button></div>
                     <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${character._id}')">Delete</button></div>
                 </div>
             </div>
@@ -52,15 +53,18 @@ function renderCharacter(character) {
                 <div class="card">
                     <div class="row">
                         <div class="col-sm">
-                            <div id="${character.race}">
+                            <div id="${character._id}">
+                            ${character.race}
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div id="${character.class}">
+                            <div id="${character._id}">
+                            ${character.class}
                             </div>
                         </div>
                         <div class="col-sm">
-                            <div id="${character.hp}">
+                            <div id="${character._id}">
+                            ${character.hp}
                             </div>
                         </div>
                     </div>
@@ -80,7 +84,7 @@ function renderCharacters() {
 
 
 function deleteCharacter(id){
-	let characterIndex = monsters.findIndex(character => character.id === id);
+	let characterIndex = characters.findIndex(character => character.id === id);
 	characters.splice(characterIndex, 1);
 	renderCharacters();
 }

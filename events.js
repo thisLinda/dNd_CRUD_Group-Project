@@ -82,78 +82,78 @@
 
 //  ----------------BELOW IS IMPORTANT STUFF FOR MARC POSSIBLY-----------------------------
 
-const characters = [];
+// const characters = [];
 
-const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
+// const characterModal = new bootstrap.Modal(document.getElementById('create-character-modal'));
 
-let currentCharacterToEditId = -1;
-let nextCharacterId = 0;
+// let currentCharacterToEditId = -1;
+// let nextCharacterId = 0;
 
-function saveCharacter() {
-    let character = characters.find(character => characters.id === currentCharacterToEditId);
-    if(!character) {
-        character = { id: currentCharacterToEditId }
-        characters.push(character);
-    }
+// function saveCharacter() {
+//     let character = characters.find(character => characters.id === currentCharacterToEditId);
+//     if(!character) {
+//         character = { id: currentCharacterToEditId }
+//         characters.push(character);
+//     }
 
-    character.name = $('#character-name').val();
-    character.race = $('#character-race').val();
-    character.class = $('#character-class').val();
-    character.hp = $('#health-points').val();
+//     character.name = $('#character-name').val();
+//     character.race = $('#character-race').val();
+//     character.class = $('#character-class').val();
+//     character.hp = $('#health-points').val();
 
-    characterModal.hide();
+//     characterModal.hide();
 
-    renderCharacters();
-    console.log(character.name);
-    console.log(character.race);
-    console.log(character.class);
-    console.log(character.hp);
-    console.log(currentCharacterToEditId);
+//     renderCharacters();
+//     console.log(character.name);
+//     console.log(character.race);
+//     console.log(character.class);
+//     console.log(character.hp);
+//     console.log(currentCharacterToEditId);
 
-}
-
-
-function renderCharacter(character) {
-    return (
-        `<div id="${character._id}" class="card">
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-sm"><h2>${character.name}</h2></div>
-                    <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${character._id}')">Delete</button></div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="card">
-                    <div class="row">
-                        <div class="col-sm">
-                            <div id="${character._id}">
-                            ${character.race}
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div id="${character._id}">
-                            ${character.class}
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div id="${character._id}">
-                            ${character.hp}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><br>`
-    )
-
-}
+// }
 
 
-function renderCharacters() {
-    $("#character-list").empty().append(
-        characters.map(character => renderCharacter(character))
-    );
-}
+// function renderCharacter(character) {
+//     return (
+//         `<div id="${character._id}" class="card">
+//             <div class="card-header">
+//                 <div class="row">
+//                     <div class="col-sm"><h2>${character.name}</h2></div>
+//                     <div class="col-sm"><button class="btn btn-danger" onclick="deleteEvent('${character._id}')">Delete</button></div>
+//                 </div>
+//             </div>
+//             <div class="card-body">
+//                 <div class="card">
+//                     <div class="row">
+//                         <div class="col-sm">
+//                             <div id="${character._id}">
+//                             ${character.race}
+//                             </div>
+//                         </div>
+//                         <div class="col-sm">
+//                             <div id="${character._id}">
+//                             ${character.class}
+//                             </div>
+//                         </div>
+//                         <div class="col-sm">
+//                             <div id="${character._id}">
+//                             ${character.hp}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div><br>`
+//     )
+
+// }
+
+
+// function renderCharacters() {
+//     $("#character-list").empty().append(
+//         characters.map(character => renderCharacter(character))
+//     );
+// }
 
 const events = [];
 
