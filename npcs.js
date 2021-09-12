@@ -13,15 +13,10 @@ const npcs = [
 },
 ]
 
-//displays any exisng npcs
-$(() => {renderNPCS(); })
-console.log('hello');
-
 const npcModal = new bootstrap.Modal(document.getElementById('create-npc-modal'));
 let currentNpcToEditId = -1;
 let nextNpcId = npcs.length;
 console.log(npcs);
-//=============================================================
 
 function editNPC(id) {
   let npc = npcs.find(npc => npc._id === id);
@@ -100,37 +95,4 @@ function deleteNPC(id) {
   renderNPCS(); 
 }
 
-// document.getElementById('saveEvent').addEventListener('click', () => {
-//   for (let npc of npcs) {
-//     console.log(npcs);
-//     $('#undefined-NPC-list').append(
-//       `<p>
-//       <span id="name-${npcs._id}"><strong>ID:</strong> ${npcs._id}</span>
-//       <span id="name-${npcs._id}"><strong>Name:</strong> ${npcs.name}</span>
-//       <span id="name-${npcs._id}"><strong>Plot:</strong> ${npcs.plot}</span> 
-//       </p>
-//       <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
-//       <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>`
-//     );
-// };
-// });
 
-// function showAllNpcs() {
-//         //$('#undefined-NPC-list').empty();
-//         for (let npc of npcs) {
-//           $('#undefined-NPC-list').append(
-//             `<p>
-//             <span id="name-${npcs.id}""><strong>ID:</strong> ${npcs.id}</span>
-//             <span id="name-${npcs.id}""><strong>Name:</strong> ${npcs.name}</span>
-//             <span id="name-${npcs.id}""><strong>Plot:</strong> ${npcs.plot}</span> 
-//             </p>
-//             <button type="button" id="edit-npc" class="btn btn-success" onclick="editNPC()">Edit</button>
-//             <button type="button" id="delete-npc" class="btn btn-danger" onclick="deleteNPC()">Delete</button>`
-//           );
-//   }
-// }
-
-
-// function deleteNpc() {
-// //slice or splice
-// }
