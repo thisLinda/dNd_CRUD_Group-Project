@@ -1,5 +1,5 @@
 ## Dungeons and Dragons Campaign Creator
-In this project we have created a tool to be used by the Dungeon Master to track campaigns with a variety of options. Choices available to the user include: encounter or battle, event, characters, non-playable characters, and monsters. Once created choices can then be read, updated, and deleted.
+In this project we have created a tool to be used by the Dungeon Master to track campaigns with a variety of options. Choices available to the user include: encounter or battle, characters, non-playable characters, and monsters. Once created choices can then be read, updated, and deleted.
 
 ## Dependencies
 Bootstrap<br>
